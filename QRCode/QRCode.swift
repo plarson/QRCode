@@ -24,7 +24,11 @@ public struct QRCode {
     public static let defaultColor = UIColor.black
     public static let defaultBackgroundColor = UIColor.white
     public static let defaultImageSize: CGSize? = nil
+#if os(visionOS)
+    public static let defaultScale = 8.0
+#else
     public static let defaultScale = UIScreen.main.scale
+#endif
     public static let defaultInputCorrection = InputCorrection.low
 
     private let imageGenerator: QRCodeImageGenerator!
